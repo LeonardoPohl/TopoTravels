@@ -11,6 +11,7 @@
 #include "util/WindowInfo.h"
 
 #include "example.h"
+#include "data/EarthDataCollector.h"
 
 int main()
 {
@@ -43,6 +44,7 @@ int main()
 
     bool myToolActive = true;
     float color[4]{0.0f, 0.0f, 0.0f, 1.00f};
+    EarthDataCollector edc;
     
     // Main loop
     while (!glfwWindowShouldClose(window))
@@ -55,7 +57,8 @@ int main()
 
         // Your ImGui widgets/code goes here
         showExampleFrame(&myToolActive, &color);
-
+        edc.showDataCollector();
+        
         // Rendering
         glClearColor(color[0], color[1], color[2], color[3]);
         glClear(GL_COLOR_BUFFER_BIT);
